@@ -1,0 +1,42 @@
+@import './variable.scss';
+@mixin font_dpr($font-size){
+    font-size: $font-size;
+    [data-dpr='2'] & { font-size: $font-size*2;}
+    [data-dpr='3'] & { font-size: $font-size*3;}
+    [data-dpr='4'] & { font-size: $font-size*4;}
+}
+@mixin font-size($size){
+    @include font_dpr($size);
+}
+@mixin bg_color(){
+   background:$background-color-theme;
+   [data-theme=theme1] & {
+    background:$background-color-theme1;
+   }
+   [data-theme=theme2] & {
+    background:$background-color-theme2;
+   }
+}
+@mixin bg_img($url) {
+    [data-theme='theme'] & {background-image: url($url + '_163@3x.png');}
+    [data-theme='theme1'] & {background-image: url($url + '_qq@3x.png');}
+    [data-theme='theme2'] & {background-image: url($url + '_xm@3x.png');}
+}
+@mixin font_color(){
+  color:$background-color-theme;
+   [data-theme=theme1] & {
+   color:$background-color-theme1;
+   }
+   [data-theme=theme2] & {
+   color:$background-color-theme2;
+   }
+}
+@mixin font_solid(){
+  border-bottom:3px solid $background-color-theme;
+   [data-theme=theme1] & {
+   border-bottom:3px solid $background-color-theme1;
+   }
+   [data-theme=theme2] & {
+   border-bottom:3px solid $background-color-theme2;
+   }
+}
